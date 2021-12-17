@@ -65,7 +65,6 @@ public class AppMain {
 //        System.out.println("Sum  not even: "+ notEvenSumm/(142-count));
 
 
-
 //
 //        for (int i = 0; i < arr.length; i++) {
 //
@@ -108,15 +107,39 @@ public class AppMain {
 //            i++;// i = i + 1     i--  === i = i-1;
 //            System.out.println(i);
 //        }while (i< 10);
+        System.out.println(reverse("a1bc3d efg!h"));
+    }
 
-        char c = 80;
-        System.out.println(c);
+    public static String reverse(String source) {
+        String sourceWords[] = source.split(" ");
+        String reverseWords[] = new String[sourceWords.length];
+        for (int i = 0; i < sourceWords.length; i++) {
 
+            char sourceWord[] = sourceWords[i].toCharArray();
+            char wordCompare[] = sourceWords[i].toCharArray();
 
+            int count = 0;
+            for (int j = sourceWord.length - 1; j >= 0; j--) {
+                if (!Character.isLetter(wordCompare[count])) {
+                    if (count < sourceWords[i].length()) {
+                        count++;
+                    }
+                }
+                if (Character.isLetter(sourceWord[j])) {
+                    sourceWord[j] = wordCompare[count];
+                    count++;
 
+                }
 
+            }
 
+            reverseWords[i] = String.valueOf(sourceWord);
+        }
+
+        return String.join(" ", reverseWords);
 
     }
 
+
 }
+
